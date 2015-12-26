@@ -49,7 +49,7 @@ gameStates.loading.prototype = {
             music.play();
             flagMusicStarted = true;
             this.game.state.start("Stage1");
-            this.game.state.states.Loading.state.destroy();
+            console.log('loading stage destroyed');
         }
     },
 
@@ -63,6 +63,7 @@ gameStates.loading.prototype = {
 
 gameStates.stage1.prototype = {
     create: function() {
+        console.log('stage 1 created');
         cursors = this.game.input.keyboard.addKeys({ 
             'up': Phaser.KeyCode.W, 
             'down': Phaser.KeyCode.S, 
