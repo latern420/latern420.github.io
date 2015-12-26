@@ -64,6 +64,8 @@ gameStates.loading.prototype = {
 gameStates.stage1.prototype = {
     create: function() {
         console.log('stage 1 created');
+        this.game.stage.disableVisibilityChange = true;
+
         cursors = this.game.input.keyboard.addKeys({ 
             'up': Phaser.KeyCode.W, 
             'down': Phaser.KeyCode.S, 
@@ -78,6 +80,7 @@ gameStates.stage1.prototype = {
         this.game.add.tileSprite(0, 0, 1200, 600, 'grass');
 
         player = this.game.add.sprite(200, 350, 'player');
+        player.anchor.setTo(0.5, 0.5);
     },
 
     update: function() {
@@ -89,5 +92,8 @@ gameStates.stage1.prototype = {
             player.position.y -= 4;
         else if (cursors.down.isDown)
             player.position.y += 4;
+
+        player.rotation += 0.05;
     }
 }
+
